@@ -3,10 +3,11 @@ import { ScrollView, View } from "react-native";
 import { DataTable, Searchbar } from "react-native-paper";
 import TopHeader from "../paper/AppBar";
 import userData from "../dummyData";
+import { appThemeColor } from "../common/style";
 
 export default function Users({ navigation }) {
   const [page, setPage] = React.useState(0);
-  const [itemsPerPage, setItemsPerPage] = React.useState(10);
+  const [itemsPerPage, setItemsPerPage] = React.useState(50);
   const [searchQuery, setSearchQuery] = React.useState("");
   const onChangeSearch = (query) => setSearchQuery(query);
 
@@ -34,7 +35,7 @@ export default function Users({ navigation }) {
         goBackVisible={false}
         navigation={navigation}
       />
-      <View style={{ marginHorizontal: 10 }}>
+      <View style={{ marginHorizontal: 9 }}>
         <Searchbar
           placeholder="Search"
           onChangeText={onChangeSearch}
@@ -44,17 +45,34 @@ export default function Users({ navigation }) {
         />
 
         <ScrollView
-          contentContainerStyle={{ paddingBottom: 100, marginTop: 20 }}
+          contentContainerStyle={{ paddingBottom: 200, marginTop: 20 }}
         >
           <DataTable>
-            <DataTable.Header style={{ backgroundColor: "#36454F" }}>
+            <DataTable.Header
+              style={{
+                backgroundColor: "#0a6070",
+                borderWidth: 1,
+                borderRadius: 20,
+                borderColor: "#0a6070",
+              }}
+            >
+              <DataTable.Title
+                style={{ maxWidth: 50 }}
+                textStyle={{ fontSize: 22, color: "#fff" }}
+              >
+                #
+              </DataTable.Title>
               <DataTable.Title textStyle={{ fontSize: 22, color: "#fff" }}>
                 Name
               </DataTable.Title>
-              <DataTable.Title textStyle={{ fontSize: 22, color: "#fff" }}>
+              <DataTable.Title
+                style={{ marginLeft: 100 }}
+                textStyle={{ fontSize: 22, color: "#fff" }}
+              >
                 Contact
               </DataTable.Title>
             </DataTable.Header>
+            <View style={{ marginTop: 10 }} />
             {userData.map(
               (data, i) =>
                 i <= itemsPerPage && (
@@ -63,8 +81,13 @@ export default function Users({ navigation }) {
                     style={{}}
                     onPress={() => details(data)}
                   >
-                    <DataTable.Cell>{data.name}</DataTable.Cell>
-                    <DataTable.Cell>{data.number}</DataTable.Cell>
+                    <DataTable.Cell>{i + 1}</DataTable.Cell>
+                    <DataTable.Cell style={{ marginLeft: -50, minWidth: 100 }}>
+                      {data.name}
+                    </DataTable.Cell>
+                    <DataTable.Cell style={{ marginLeft: 10 }}>
+                      {data.number}
+                    </DataTable.Cell>
                   </DataTable.Row>
                 )
             )}

@@ -85,10 +85,10 @@ const AddUser = ({ navigation, route }) => {
               label="Phone number"
               value={mobileNumber}
               onChangeText={(text) => setMobileNumber(text)}
-              mode="outlined"
+              // mode="outlined"
               keyboardType="numeric"
               right={<TextInput.Icon name="cellphone-iphone" />}
-              style={{ display: isNewUser ? "none" : "flex" }}
+              style={{ display: isNewUser ? "none" : "flex", backgroundColor: '#fff' }}
             />
             <View style={{ marginTop: 20 }} />
 
@@ -98,8 +98,10 @@ const AddUser = ({ navigation, route }) => {
               onChangeText={(text) =>
                 handleInputChange(text, "userName")
               }
-              mode="outlined"
+              // mode="outlined"
               right={<TextInput.Icon name="human" />}
+              style={{ backgroundColor: '#fff' }}
+
             />
             <View style={{ marginTop: 10 }} />
             <View
@@ -113,9 +115,10 @@ const AddUser = ({ navigation, route }) => {
                 label="Waist"
                 value={values.waist}
                 onChangeText={(text) => handleInputChange(text, "waist")}
-                mode="outlined"
-                style={{ width: "48%" }}
+                // mode="outlined"
+                style={{ width: "48%", backgroundColor: '#fff' }}
                 keyboardType="numeric"
+
               />
 
               <TextInput
@@ -124,8 +127,8 @@ const AddUser = ({ navigation, route }) => {
                 onChangeText={(text) =>
                   handleInputChange(text, "shoulder")
                 }
-                mode="outlined"
-                style={{ width: "48%" }}
+                // mode="outlined"
+                style={{ width: "48%", backgroundColor: '#fff' }}
                 keyboardType="numeric"
               />
             </View>
@@ -142,8 +145,8 @@ const AddUser = ({ navigation, route }) => {
                 label="Kamar"
                 value={values.kamar}
                 onChangeText={(text) => handleInputChange(text, "kamar")}
-                mode="outlined"
-                style={{ width: "48%" }}
+                // mode="outlined"
+                style={{ width: "48%", backgroundColor: '#fff' }}
                 keyboardType="numeric"
               />
 
@@ -151,9 +154,10 @@ const AddUser = ({ navigation, route }) => {
                 label="Shoulder"
                 value={values.pait}
                 onChangeText={(text) => handleInputChange(text, "pait")}
-                mode="outlined"
-                style={{ width: "48%" }}
+                // mode="outlined"
+                style={{ width: "48%", backgroundColor: '#fff' }}
                 keyboardType="numeric"
+                activeOutlineColor="red"
               />
             </View>
           </View>
@@ -198,19 +202,18 @@ const AddUser = ({ navigation, route }) => {
 const styles = StyleSheet.create({
   mainView: {
     marginTop: 20,
-    marginHorizontal: 15,
-    backgroundColor: "#f7f7f7",
+    // backgroundColor: "#f7f7f7",
     padding: 20,
-    borderWidth: 1,
-    borderColor: "lightgray",
-    shadowColor: "#000",
-    shadowOffset: {
-      width: 0,
-      height: 1,
-    },
-    shadowOpacity: 0.2,
-    shadowRadius: 1.41,
-    elevation: 5,
+    // borderWidth: 1,
+    // borderColor: "lightgray",
+    // shadowColor: "#000",
+    // shadowOffset: {
+    //   width: 0,
+    //   height: 1,
+    // },
+    // shadowOpacity: 0.2,
+    // shadowRadius: 1.41,
+    // elevation: 5,
   },
   otherStyle: {
     position: "absolute",

@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { View, StyleSheet, Text } from "react-native";
+import Header from "../Header";
 import { appThemeColor } from "../../common/style";
 import { TextInput, Button } from "react-native-paper";
 import { LoginUser } from "../../common/ApiLayer/AddUser";
@@ -8,6 +9,7 @@ import Ionicons from "react-native-vector-icons/Ionicons";
 export default function Login({ navigation }) {
   const [name, setName] = useState("");
   const [pwd, setPwd] = useState("");
+  const [hidePwd, setHidePwd] = useState(true);
 
   const handleLogin = () => {
     const data = { name, pwd };
@@ -17,23 +19,10 @@ export default function Login({ navigation }) {
 
   return (
     <View style={styles.mainBody}>
-      <View
-        style={{
-          display: "flex",
-          flexDirection: "row",
-          justifyContent: "center",
-        }}
-      >
-        <Text style={{ fontSize: 40, color: "#333" }}>E-Tailors</Text>
-        <Ionicons
-          name={"cut-outline"}
-          size={40}
-          color={"#333"}
-          style={{ marginLeft: 20, marginTop: 8 }}
-        />
-      </View>
+      <Header status={"Login"} />
 
       <View style={{ marginTop: 60, marginHorizontal: 20 }}>
+        <Text style={{ fontSize: 20, color: "#333" }}>Sign In</Text>
         <TextInput
           label="Mobile Number"
           value={name}
@@ -41,6 +30,9 @@ export default function Login({ navigation }) {
           mode="outlined"
           keyboardType="numeric"
           right={<TextInput.Icon name="cellphone-iphone" />}
+          style={{ backgroundColor: "#fff", marginTop: 15 }}
+          activeOutlineColor="#333"
+          outlineColor="lightgray"
         />
         <View style={{ marginTop: 20 }} />
         <TextInput
@@ -48,8 +40,16 @@ export default function Login({ navigation }) {
           value={pwd}
           onChangeText={(text) => setPwd(text)}
           mode="outlined"
-          secureTextEntry={true}
-          right={<TextInput.Icon name="onepassword" />}
+          secureTextEntry={hidePwd}
+          right={
+            <TextInput.Icon
+              name={hidePwd ? "eye" : "eye-off-outline"}
+              onPress={() => setHidePwd((prev) => !prev)}
+            />
+          }
+          style={{ backgroundColor: "#fff" }}
+          activeOutlineColor="#333"
+          outlineColor="lightgray"
         />
         <Button
           icon="arrow-right-bold"

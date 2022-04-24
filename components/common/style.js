@@ -1,1 +1,1 @@
-export const appThemeColor = "#36454F";
+export const appThemeColor = "#1999B2";
