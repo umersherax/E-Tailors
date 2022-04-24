@@ -9,7 +9,7 @@ import {
 } from "react-native-paper";
 import { View } from "react-native";
 import TopHeader from "../../paper/AppBar";
-import {appThemeColor} from '../../common/style';
+import { appThemeColor } from "../../common/style";
 
 const EditUser = ({ navigation, route }) => {
   const { data } = route.params;
@@ -76,7 +76,12 @@ const EditUser = ({ navigation, route }) => {
             icon="account-edit"
             mode="contained"
             onPress={showDialog}
-            style={{ marginTop: 50, width: "70%", alignSelf: "center", backgroundColor: appThemeColor }}
+            style={{
+              marginTop: 50,
+              width: "70%",
+              alignSelf: "center",
+              backgroundColor: appThemeColor,
+            }}
           >
             Edit size
           </Button>
@@ -88,7 +93,12 @@ const EditUser = ({ navigation, route }) => {
                 <Paragraph>User Updated</Paragraph>
               </Dialog.Content>
               <Dialog.Actions>
-                <Button onPress={hideDialog} style={{ backgroundColor: appThemeColor }}>Done</Button>
+                <Button
+                  onPress={hideDialog}
+                  style={{ backgroundColor: appThemeColor }}
+                >
+                  Done
+                </Button>
               </Dialog.Actions>
             </Dialog>
           </Portal>

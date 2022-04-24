@@ -1,27 +1,16 @@
-import React, {useState, useRef} from "react";
+import React from "react";
 import { ScrollView, View } from "react-native";
-import { DataTable, Searchbar, ProgressBar } from "react-native-paper";
+import { DataTable, Searchbar } from "react-native-paper";
 import TopHeader from "../paper/AppBar";
 import userData from "../dummyData";
-import { useSelector, useDispatch } from "react-redux";
+
 export default function Users({ navigation }) {
   const [page, setPage] = React.useState(0);
   const [itemsPerPage, setItemsPerPage] = React.useState(10);
   const [searchQuery, setSearchQuery] = React.useState("");
-  const dispatch = useDispatch();
-
   const onChangeSearch = (query) => setSearchQuery(query);
-  const [loading, setLoading] = useState(0);
-
-
 
   React.useEffect(() => {
-    // console.log('chala');
-    // dispatch({
-    //   type: "TEST",
-    //   payload: ""
-    // })
-    
     setPage(0);
   }, [itemsPerPage]);
 
@@ -39,8 +28,12 @@ export default function Users({ navigation }) {
 
   return (
     <>
-        
-      <TopHeader title="All Users" subtitle="Home" goBackVisible={false} navigation={navigation} />
+      <TopHeader
+        title="All Users"
+        subtitle="Home"
+        goBackVisible={false}
+        navigation={navigation}
+      />
       <View style={{ marginHorizontal: 10 }}>
         <Searchbar
           placeholder="Search"
@@ -65,7 +58,11 @@ export default function Users({ navigation }) {
             {userData.map(
               (data, i) =>
                 i <= itemsPerPage && (
-                  <DataTable.Row key={i} style={{}} onPress={() => details(data)}>
+                  <DataTable.Row
+                    key={i}
+                    style={{}}
+                    onPress={() => details(data)}
+                  >
                     <DataTable.Cell>{data.name}</DataTable.Cell>
                     <DataTable.Cell>{data.number}</DataTable.Cell>
                   </DataTable.Row>
@@ -78,7 +75,6 @@ export default function Users({ navigation }) {
               label="1-2 of 6"
             />
           </DataTable>
-
         </ScrollView>
       </View>
     </>

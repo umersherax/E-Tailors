@@ -1,10 +1,8 @@
-import { StyleSheet, Text, TextInput, SafeAreaView } from "react-native";
-import TopHeader from "../../paper/AppBar";
-
 import * as React from "react";
+import TopHeader from "../../paper/AppBar";
 import { View } from "react-native";
-import { Button, Drawer, Divider, DataTable } from "react-native-paper";
-import {appThemeColor} from '../../common/style';
+import { Drawer, DataTable } from "react-native-paper";
+import { appThemeColor } from "../../common/style";
 import Ionicons from "react-native-vector-icons/Ionicons";
 
 export default function EachUser({ navigation, route }) {
@@ -15,8 +13,8 @@ export default function EachUser({ navigation, route }) {
   };
 
   const edit = () => {
-    navigation.navigate("EditUser",{
-        data
+    navigation.navigate("EditUser", {
+      data,
     });
   };
 
@@ -59,25 +57,29 @@ export default function EachUser({ navigation, route }) {
             <DataTable.Cell numeric>{data.shoulder}</DataTable.Cell>
           </DataTable.Row>
         </DataTable>
-        <View style={{ display: 'flex', flexDirection:'row', justifyContent: 'flex-end' , marginTop:50 }}>
+        <View
+          style={{
+            display: "flex",
+            flexDirection: "row",
+            justifyContent: "flex-end",
+            marginTop: 50,
+          }}
+        >
+          <Ionicons
+            name={"create-outline"}
+            size={40}
+            color={appThemeColor}
+            style={{ marginLeft: 20, marginTop: 3 }}
+            onPress={edit}
+          />
 
-
-        <Ionicons
-          name={"create-outline"}
-          size={40}
-          color={appThemeColor}
-          style={{ marginLeft: 20, marginTop: 3 }}
-          onPress={edit}
-        />
-
-        <Ionicons
-          name={"trash-outline"}
-          size={40}
-          color={"#DB403F"}
-          style={{ marginLeft: 20, marginTop: 3 }}
-        />
+          <Ionicons
+            name={"trash-outline"}
+            size={40}
+            color={"#DB403F"}
+            style={{ marginLeft: 20, marginTop: 3 }}
+          />
         </View>
-       
       </View>
     </>
   );

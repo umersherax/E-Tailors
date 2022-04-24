@@ -5,15 +5,11 @@ import {
   StyleSheet,
 } from 'react-native';
 import Ionicons from "react-native-vector-icons/Ionicons";
-
 import AsyncStorage from '@react-native-async-storage/async-storage';
-
-import { useSelector, useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
 
 const SplashScreen = ({navigation}) => {
-  const user_info = useSelector((state) => state.auth.SearchValue);
-
-
+  // const user_info = useSelector((state) => state.auth.SearchValue);
   useEffect(() => {
     setTimeout(() => {
       AsyncStorage.getItem('user_id').then((value) => {
