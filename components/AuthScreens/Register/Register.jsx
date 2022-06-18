@@ -23,12 +23,14 @@ export default function Register({ navigation }) {
         ...error,
         cellError: true
       });
+      return;
     }
     if(pwd.length < reqPwdLen){
       setError({
         ...error,
         pwdError: true
       });
+      return;
     }
      else {
       navigation.navigate("get-otp", { cellNumber });
